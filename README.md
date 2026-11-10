@@ -27,6 +27,12 @@ with a dashboard, live traffic stats and a menu-bar owl. Free, open source, no b
 
 <sub>Screenshots use sample data.</sub>
 
+## Pop-up blocker extension
+
+DNS can't see pop-ups that a page opens with JavaScript, so Ad-Owl has a companion browser extension
+for Chrome and Brave that blocks pop-ups, pop-unders and click-hijacking tabs.
+See [extension/README.md](extension/README.md) to install it.
+
 ## Requirements
 
 - macOS 14 Sonoma or later

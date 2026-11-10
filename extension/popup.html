@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ad-Owl Pop-up Blocker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <img src="icons/48.png" alt="" width="36" height="36">
+    <div>
+      <h1>Ad-Owl</h1>
+      <p class="sub">Pop-up Blocker</p>
+    </div>
+  </header>
+
+  <section class="card">
+    <p class="site" id="site">—</p>
+    <p class="big"><span id="count">0</span></p>
+    <p class="label" id="countLabel">pop-ups blocked on this page</p>
+  </section>
+
+  <section class="card" id="listCard" hidden>
+    <h2>Blocked here</h2>
+    <ul id="list"></ul>
+  </section>
+
+  <label class="card toggle" id="allowRow">
+    <span>
+      <strong>Allow pop-ups on this site</strong>
+      <small>For sign-in, payment or chat windows that need them.</small>
+    </span>
+    <input type="checkbox" id="allow">
+  </label>
+
+  <details class="card" id="allowed">
+    <summary>Allowed sites (<span id="allowedCount">0</span>)</summary>
+    <ul id="allowedList"></ul>
+  </details>
+
+  <footer><span id="total">0</span> pop-ups blocked in total</footer>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

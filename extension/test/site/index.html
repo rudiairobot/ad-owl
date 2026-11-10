@@ -1,0 +1,30 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Ad-Owl pop-up fixture</title>
+<style>body{font:16px system-ui;margin:20px} .row{margin:6px 0} button,a{font-size:16px}
+#overlay{position:fixed;inset:0;opacity:0;background:#000;display:none}</style></head>
+<body>
+<h1>Pop-up tricks</h1>
+<!-- Legitimate: must open -->
+<div class="row"><a id="link" href="http://localhost:8765/t.html?link" target="_blank">A real link that opens in a new tab</a></div>
+<div class="row"><a id="link2" href="http://localhost:8765/t.html?middle">A link opened with a middle-click</a></div>
+<div class="row"><form id="f1" action="http://localhost:8765/t.html" target="_blank"><input name="q" value="form"><button id="formReal">Submit form to new tab</button></form></div>
+<div class="row"><button id="sameSite" onclick="window.open('/t.html?same')">Open another page of this site</button></div>
+<!-- Abusive: must be blocked -->
+<div class="row"><button id="btnCross" onclick="window.open('http://localhost:8765/t.html?btn')">window.open to another site</button></div>
+<div class="row"><p id="hijackText">Plain text that a page-wide click listener hijacks</p></div>
+<div class="row"><button id="synthetic">Faked click on a hidden link</button></div>
+<div class="row"><button id="iframeOpen">window.open from a fresh iframe</button></div>
+<div class="row"><button id="armOverlay">Show invisible full-page link</button></div>
+<div class="row"><button id="formScript">Script submits a hidden form</button></div>
+<div class="row"><button id="delayed">window.open 300 ms after a click</button></div>
+<a id="overlay" href="http://localhost:8765/t.html?overlay" target="_blank"></a>
+<script>
+document.addEventListener('click', e => { if (e.target.id === 'hijackText') window.open('http://localhost:8765/t.html?hijack'); });
+synthetic.onclick = () => { const a = document.createElement('a'); a.href = 'http://localhost:8765/t.html?synthetic'; a.target = '_blank'; document.body.append(a); a.click(); a.remove(); };
+iframeOpen.onclick = () => { const f = document.createElement('iframe'); f.style.display = 'none'; document.body.append(f); f.contentWindow.open('http://localhost:8765/t.html?iframe'); };
+armOverlay.onclick = () => { overlay.style.display = 'block'; };
+overlay.addEventListener('click', () => setTimeout(() => overlay.style.display = 'none'));
+formScript.onclick = () => { const f = document.createElement('form'); f.action = 'http://localhost:8765/t.html'; f.target = '_blank'; document.body.append(f); f.submit(); f.remove(); };
+delayed.onclick = () => setTimeout(() => window.open('http://localhost:8765/t.html?delayed'), 300);
+</script>
+</body></html>
