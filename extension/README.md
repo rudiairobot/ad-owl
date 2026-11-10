@@ -6,11 +6,14 @@ that a page opens on its own.
 
 ## Install in Chrome or Brave
 
-1. Get the `extension` folder: clone this repo, or download it from the
-   [releases page](https://github.com/rudiairobot/ad-owl/releases) and unzip it.
+1. Download **`ad-owl-extension-chrome.zip`** from the
+   [latest release](https://github.com/rudiairobot/ad-owl/releases/latest) and double-click it.
+   That gives you an `ad-owl-extension` folder. Move it somewhere permanent (e.g. Documents),
+   because the browser loads it from there every time.
 2. Open `chrome://extensions` (Chrome) or `brave://extensions` (Brave).
 3. Turn on **Developer mode** (top-right switch).
-4. Click **Load unpacked** and choose the `extension` folder.
+4. Click **Load unpacked** and choose the `ad-owl-extension` folder.
+   (From a clone of this repo, choose the `extension` folder instead.)
 5. Pin it: click the puzzle-piece icon in the toolbar, then the pin next to **Ad-Owl Pop-up Blocker**.
 
 It stays installed when the browser restarts. After pulling a newer version, click the ↻ reload

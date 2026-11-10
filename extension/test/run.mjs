@@ -11,7 +11,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const EXT = join(here, '..');
+const EXT = process.env.EXT || join(here, '..');
 const BROWSER = process.env.BROWSER || '/Applications/Brave Browser.app/Contents/MacOS/Brave Browser';
 const WITHOUT = process.argv.includes('--without');
 const PORT = 9333, SITE = 'http://127.0.0.1:8765/';
